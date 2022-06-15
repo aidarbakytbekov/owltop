@@ -1,0 +1,61 @@
+@use "../../../assets/styles/scss/" as *;
+
+.btn {
+	position: relative;
+
+	width: 40px;
+	height: 40px;
+
+	span,
+	span::before,
+	span::after {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+
+		width: 26px;
+		height: 3px;
+		margin-top: -1px;
+		margin-left: -13px;
+
+		transition: 0.2s;
+
+		border-radius: 2px;
+		background-color: $primary;
+	}
+
+	span::before,
+	span::after {
+		content: "";
+	}
+
+	span::before {
+		transform: translateY(-6px);
+	}
+
+	span::after {
+		transform: translateY(5px);
+	}
+
+	&:hover {
+		span,
+		span::after,
+		span::before {
+			background-color: #FFF;
+		}
+	}
+
+	&.active {
+		span {
+			height: 0;
+		}
+
+		span::before {
+			transform: rotate(45deg);
+		}
+
+		span::after {
+			transform: rotate(-45deg);
+		}
+	}
+}

@@ -9,36 +9,37 @@ import Head from 'next/head';
 import { ParsedUrlQuery } from 'querystring';
 
 import { withLayout } from '@/components/layout/WithLayout';
+import Error404 from '@/components/screens/Error404/Error404';
 import TopPageComponent from '@/components/screens/top-page/TopPage.component';
+
+import { MenuItem } from '@/interfaces/menu.interface';
+import { ProductModel } from '@/interfaces/product.interface';
 
 import { topApi } from '../../app/configs/api.config';
 import { firstLevelMenu } from '../../app/helpers/helpers';
-import { MenuItem } from '@/interfaces/menu.interface';
-import { ProductModel } from '@/interfaces/product.interface';
 import {
 	TopLevelCategory,
 	TopPageModel,
 } from '../../app/interfaces/top-page.interface';
 
 const TopPage: NextPage<TopPageProps> = ({ firstCategory, page, products }) => {
+	if (!products || !page) {
+		return <Error404 />;
+	}
 	return (
 		<>
-			{page && products && (
-				<>
-					<Head>
-						<title>{page.metaTitle}</title>
-						<meta name="description" content={page.metaDescription} />
-						<meta property="og:title" content={page.metaTitle} />
-						<meta property="og:description" content={page.metaDescription} />
-						<meta property="og:locale" content="article" />
-					</Head>
-					<TopPageComponent
-						firstCategory={firstCategory}
-						page={page}
-						products={products}
-					/>
-				</>
-			)}
+			<Head>
+				<title>{page.metaTitle}</title>
+				<meta name="description" content={page.metaDescription} />
+				<meta property="og:title" content={page.metaTitle} />
+				<meta property="og:description" content={page.metaDescription} />
+				<meta property="og:locale" content="article" />
+			</Head>
+			<TopPageComponent
+				firstCategory={firstCategory}
+				page={page}
+				products={products}
+			/>
 		</>
 	);
 };

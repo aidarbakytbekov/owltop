@@ -1,13 +1,11 @@
-import Head from 'next/head'
-import NextProgressBar from 'nextjs-progressbar'
-import { FC, ReactNode } from 'react'
+import Head from 'next/head';
+import NextProgressBar from 'nextjs-progressbar';
+import { FC, ReactNode } from 'react';
 
-
-
-import Favicons from './Favicons'
+import Favicons from './Favicons';
 
 interface Props {
-	children: ReactNode
+	children: ReactNode;
 }
 
 const HeadProvider: FC<Props> = ({ children }) => {
@@ -38,7 +36,7 @@ const HeadProvider: FC<Props> = ({ children }) => {
 			</Head>
 			{children}
 		</>
-	)
-}
+	);
+};
 
-export default HeadProvider
+export default HeadProvider;

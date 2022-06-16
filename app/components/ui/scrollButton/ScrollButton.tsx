@@ -29,7 +29,7 @@ const ScrollButton: FC = (props) => {
 			animate={controls}
 			initial={{ opacity: 0 }}
 		>
-			<Button appearance="primary">
+			<Button aria-label='Подняться наверх' appearance="primary">
 				<MaterialIcon name="MdArrowBackIosNew" />
 			</Button>
 		</motion.div>

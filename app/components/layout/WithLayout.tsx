@@ -2,7 +2,7 @@ import { AppContextProvider } from 'context/AppContextProvider';
 import HeadProvider from 'providers/headProvider/HeadProvider';
 import { FunctionComponent } from 'react';
 
-import { IAppContext } from '../../context/AppContextProvider';
+import { IAppContext } from '@/context/AppContextProvider';
 
 import Layout from './Layout';
 

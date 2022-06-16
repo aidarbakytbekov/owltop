@@ -33,14 +33,14 @@ const Rating = forwardRef(
 			constructRating(rating);
 		}, [rating, tabIndex]);
 
-		const computeFocus = (r: number, i: number): number => {
+		const computeFocus = (current: number, i: number): number => {
 			if (!isEditable) {
 				return -1;
 			}
 			if (!rating && i == 0) {
 				return tabIndex ?? 0;
 			}
-			if (r == i + 1) {
+			if (current == i + 1) {
 				return tabIndex ?? 0;
 			}
 			return -1;
@@ -68,7 +68,7 @@ const Rating = forwardRef(
 						aria-label={isEditable ? 'Укажите рейтинг' : 'рейтинг' + rating}
 						aria-valuemin={1}
 					>
-						<StarIcon />
+						<StarIcon tabIndex={isEditable ? 0 : -1} onKeyDown={handleKey} />
 					</span>
 				);
 			});

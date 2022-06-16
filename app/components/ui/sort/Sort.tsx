@@ -6,20 +6,39 @@ import SortIcon from './SortIcon';
 import { ISort, SortEnum } from './sort.interface';
 
 const Sort: FC<ISort> = ({ setSort, sort, className, ...rest }) => {
+	const handleSort = (sort: SortEnum) => {
+		setSort(sort);
+	};
+
 	return (
 		<div {...rest} className={cn(styles.sort, className)}>
-			<span onClick={() => setSort(SortEnum.Rating)} className={cn({
-        [styles.active]: sort === SortEnum.Rating
-      })}>
+			<div className={styles.sortName} id="sort">
+				Сортировка
+			</div>
+			<button
+				id="rating"
+				aria-labelledby="sort rating"
+				aria-selected={sort === SortEnum.Rating}
+				onClick={() => handleSort(SortEnum.Rating)}
+				className={cn({
+					[styles.active]: sort === SortEnum.Rating,
+				})}
+			>
 				<SortIcon />
-        По рейтингу 
-			</span>
-			<span onClick={() => setSort(SortEnum.Price)} className={cn({
-        [styles.active]: sort === SortEnum.Price
-      })}>
+				По рейтингу
+			</button>
+			<button
+				id="price"
+				aria-labelledby="sort price"
+				aria-selected={sort === SortEnum.Price}
+				onClick={() => handleSort(SortEnum.Price)}
+				className={cn({
+					[styles.active]: sort === SortEnum.Price,
+				})}
+			>
 				<SortIcon />
-        По цене 
-			</span>
+				По цене
+			</button>
 		</div>
 	);
 };

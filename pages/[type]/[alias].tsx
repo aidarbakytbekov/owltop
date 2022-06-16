@@ -11,10 +11,10 @@ import { ParsedUrlQuery } from 'querystring';
 import { withLayout } from '@/components/layout/WithLayout';
 import TopPageComponent from '@/components/screens/top-page/TopPage.component';
 
-import { API_URL, topApi } from '../../app/configs/api.config';
+import { topApi } from '../../app/configs/api.config';
 import { firstLevelMenu } from '../../app/helpers/helpers';
-import { MenuItem } from '../../app/interfaces/menu.interface';
-import { ProductModel } from '../../app/interfaces/product.interface';
+import { MenuItem } from '@/interfaces/menu.interface';
+import { ProductModel } from '@/interfaces/product.interface';
 import {
 	TopLevelCategory,
 	TopPageModel,

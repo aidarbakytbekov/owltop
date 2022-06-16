@@ -31,3 +31,10 @@ a {
 	margin: 0;
 	padding: 0;
 }
+
+.visuallyHidden {
+	height: 0;
+	width: 0;
+	overflow: hidden;
+	position: absolute;
+}

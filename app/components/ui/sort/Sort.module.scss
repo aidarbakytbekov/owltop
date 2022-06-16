@@ -1,13 +1,6 @@
-@use "../../../assets/styles/scss/" as *;
+@use '../../../assets/styles/scss/' as *;
 
 .sort {
-	span {
-		display: flex;
-		align-items: center;
-
-		cursor: pointer;
-	}
-
 	svg {
 		display: none;
 	}
@@ -48,7 +41,7 @@
 	cursor: pointer;
 
 	border: none;
-	background: none;
+	background: transparent;
 
 	font-size: 16px;
 	line-height: 22px;

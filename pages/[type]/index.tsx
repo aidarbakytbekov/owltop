@@ -6,16 +6,18 @@ import {
 } from 'next';
 import { ParsedUrlQuery } from 'querystring';
 
+import { withLayout } from '@/components/layout/WithLayout';
+import TypePage from '@/components/screens/type-page/TypePage';
+
 import { topApi } from '../../app/configs/api.config';
 import { firstLevelMenu } from '../../app/helpers/helpers';
 import { MenuItem } from '../../app/interfaces/menu.interface';
-import { withLayout } from '@/components/layout/WithLayout';
 
-const TopPage: NextPage<TypeProps> = (props) => {
-	return <div>TopPage</div>;
+const Type: NextPage<TypeProps> = ({ menu, firstCategory }) => {
+	return <TypePage menu={menu} firstCategory={firstCategory} />;
 };
 
-export default withLayout(TopPage);
+export default withLayout(Type);
 
 export const getStaticPaths: GetStaticPaths = async () => {
 	return {
@@ -46,7 +48,7 @@ export const getStaticProps: GetStaticProps = async ({
 	};
 };
 
-interface TypeProps extends Record<string, unknown> {
+export interface TypeProps extends Record<string, unknown> {
 	menu: MenuItem[];
 	firstCategory: number;
 }

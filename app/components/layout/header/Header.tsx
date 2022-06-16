@@ -24,8 +24,8 @@ const Header: FC<IHeader> = ({ className, ...props }): JSX.Element => {
 		opened: {
 			x: 0,
 			transition: {
-				stiffness: 20,
-			},
+				stiffness: 20
+			}
 		},
 		closed: {
 			x: 100,
@@ -43,9 +43,6 @@ const Header: FC<IHeader> = ({ className, ...props }): JSX.Element => {
 						exit={{
 							opacity: 0,
 							x: 100,
-							transition: {
-								duration: 0.25
-							}
 						}}
 						initial={'closed'}
 						animate={isOpenedMenu ? 'opened' : 'closed'}

@@ -1,12 +1,13 @@
 import { FC } from 'react';
 
-import { priceRu } from '@/helpers/regexp';
+
 
 import Card from '../card/Card';
 
 import styles from './IHhDataComponent.module.scss';
 import RateIcon from './RateIcon';
 import { IHhDataComponent } from './hh-data.interface';
+import { priceRu } from '../../../helpers/regexp';
 
 const HhDataComponent: FC<IHhDataComponent> = ({
 	count,

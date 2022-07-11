@@ -1,47 +1,19 @@
-@use "../../../assets/styles/scss/" as *;
+@use '../../../assets/styles/scss/' as *;
 
 .btn {
-	position: relative;
-
-	width: 40px;
-	height: 40px;
-
-	span,
-	span::before,
-	span::after {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-
-		width: 26px;
-		height: 3px;
-		margin-top: -1px;
-		margin-left: -13px;
-
-		transition: 0.2s;
-
-		border-radius: 2px;
-		background-color: $primary;
+	span {
+		position: relative;
 	}
-
-	span::before,
-	span::after {
-		content: "";
-	}
-
+	span::after,
 	span::before {
-		transform: translateY(-6px);
-	}
-
-	span::after {
-		transform: translateY(5px);
+		content: '';
 	}
 
 	&:hover {
 		span,
 		span::after,
 		span::before {
-			background-color: #FFF;
+			background-color: #fff;
 		}
 	}
 

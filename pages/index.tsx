@@ -5,7 +5,6 @@ import Home from '@/components/screens/home/Home';
 
 
 const HomePage: NextPage = () => {
-	console.log(process.env.API_DOMAIN)
 	return <Home />;
 };
 

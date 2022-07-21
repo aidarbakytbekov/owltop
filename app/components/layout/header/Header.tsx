@@ -1,31 +1,26 @@
 import cn from 'classnames';
+import Button from 'components/ui/button/Button';
 import { AnimatePresence, motion } from 'framer-motion';
-import Image from 'next/image';
-import { FC, useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
+import { FC, useEffect, useState } from 'react';
 
 import Logo from '@/components/ui/Logo';
 
-
-import BurgerButton from '../../ui/burgerButton/BurgerButton';
 import Sidebar from '../sidebar/Sidebar';
 
 import styles from './Header.module.scss';
 import { IHeader } from './header.interface';
-import { useRouter } from 'next/router';
 
 const Header: FC<IHeader> = ({ className, ...props }): JSX.Element => {
-	const router = useRouter()
+	const router = useRouter();
 	const [isOpenedMenu, setIsOpenedMenu] = useState<boolean>(false);
 	useEffect(() => {
-		setIsOpenedMenu(false)
-	}, [router])
+		setIsOpenedMenu(false);
+	}, [router]);
 
 	const variants = {
 		opened: {
 			x: 0,
-			transition: {
-				stiffness: 20
-			}
 		},
 		closed: {
 			x: 100,
@@ -34,7 +29,15 @@ const Header: FC<IHeader> = ({ className, ...props }): JSX.Element => {
 	return (
 		<header className={cn(styles.header, className)} {...props}>
 			<Logo />
-			<BurgerButton onClick={() => setIsOpenedMenu(true)} active={false} />
+			<Button
+				appearance="ghost"
+				onClick={() => setIsOpenedMenu(true)}
+				className={cn(styles.burgerMenu, {
+					[styles.active]: isOpenedMenu,
+				})}
+			>
+				<span></span>
+			</Button>
 			<AnimatePresence>
 				{isOpenedMenu && (
 					<motion.div
@@ -48,11 +51,13 @@ const Header: FC<IHeader> = ({ className, ...props }): JSX.Element => {
 						animate={isOpenedMenu ? 'opened' : 'closed'}
 					>
 						<Sidebar />
-						<BurgerButton
-							className={styles.menuClose}
+						<Button
+							appearance="ghost"
 							onClick={() => setIsOpenedMenu(false)}
-							active
-						/>
+							className={cn(styles.burgerMenu, styles.close)}
+						>
+							<span></span>
+						</Button>
 					</motion.div>
 				)}
 			</AnimatePresence>

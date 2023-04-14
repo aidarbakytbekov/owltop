@@ -18,6 +18,7 @@ const Sort: FC<ISort> = ({ setSort, sort, className, ...rest }) => {
 			<button
 				id="rating"
 				aria-labelledby="sort rating"
+				aria-label='По рейтингу'
 				aria-selected={sort === SortEnum.Rating}
 				onClick={() => handleSort(SortEnum.Rating)}
 				className={cn({
@@ -30,6 +31,7 @@ const Sort: FC<ISort> = ({ setSort, sort, className, ...rest }) => {
 			<button
 				id="price"
 				aria-labelledby="sort price"
+				aria-label='По цене'
 				aria-selected={sort === SortEnum.Price}
 				onClick={() => handleSort(SortEnum.Price)}
 				className={cn({

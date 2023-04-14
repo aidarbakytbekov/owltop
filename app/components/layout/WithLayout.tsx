@@ -15,7 +15,7 @@ export const withLayout = <T extends Record<string, unknown> & IAppContext>(
 				<HeadProvider>
 					<Layout>
 						<Component {...props} />
-					</Layout>ƒ
+					</Layout>
 				</HeadProvider>
 			</AppContextProvider>
 		);
